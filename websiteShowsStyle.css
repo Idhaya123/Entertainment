@@ -1,0 +1,47 @@
+.button {
+	background-color: #a7a4f5;
+	border: 1px cold black;
+	border-radius: 8px;
+	color: black;
+	text-align: center;
+	font-family: 'Abril Fatface', cursive;
+	float:left;
+}
+.button:hover {
+	background-color: #8b89cc;
+}
+.categories {
+	background-color: #a7a4f5;
+	border: 1px cold black;
+	border-radius: 8px;
+	color: black;
+	padding:20px 40px;
+	text-align: center;
+	font-family: 'Abril Fatface', cursive;
+}
+#catButtons {
+	text-align: center;
+}
+h1 {
+	text-align: center;
+	font-family: 'Montserrat Subrayada', sans-serif;
+	font-size : 50px;
+}
+h2 {
+	text-align: center;
+	font-family: 'Montserrat Subrayada', sans-serif;
+	font-size : 30px;
+}
+h3 {
+	text-align: center;
+	font-family: 'Playfair Display', serif;
+}
+table, th, td {
+	text-align: center;
+	font-family: 'Playfair Display', serif;
+
+}
+body {
+	background-image: linear-gradient(to bottom right, white, #e3e3fc);		
+	background-color : #f5e8fa;
+}

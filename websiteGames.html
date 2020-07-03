@@ -1,0 +1,273 @@
+<html>
+
+<head>
+<title> GAMES </title>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat+Subrayada:wght@700&family=Playfair+Display&display=swap" rel="stylesheet">
+<link rel = "stylesheet" type = "text/css" href = "websiteGamesStyle.css">
+<script src="p5.js"> </script>
+</head>
+
+<body>
+<button class="button" onclick="window.location.href='index.html';"> back </button>
+<h1> GAMES </h1>
+<h3> Below there is a game that you can play as well as links to sites with an endless amount of games as well as. </h3>
+<br></br>
+
+<canvas id="my-canvas"></canvas>
+<script id="script" type="text/javascript">
+
+
+
+var gameOn;
+var lives;
+var score;
+var highScore;
+var yPos_yel;
+
+var line1_x;
+var line1_y;
+var line1_length;
+
+var line2_x;
+var line2_y;
+var line2_length;
+
+var decreaseline1_x;
+var decreaseline2_x;
+
+var startGame;
+
+function setup() {
+createCanvas(400, 400);
+
+gameOn = true;
+lives = 3;
+score = 0;
+highScore = 0;
+yPos_yel = 200;
+
+line1_x = 440;
+line1_y = random(50,350);
+line1_length = random(20,300);
+
+line2_x = 440;
+line2_y = random(50,350);
+line2_length = random(20,300);
+
+decreaseline1_x = 1;
+decreaseline2_x = 1;
+
+startGame = false;
+
+}
+
+function draw() {
+
+background(232, 223, 245);
+    fill(0, 0, 0);
+    textSize(50);
+    textFont('Playfair Display');
+    text("Line Game", 75, 138);
+    noStroke();
+    fill(252, 104, 104);
+    rect(140,202,120,60,30);
+    fill(0);
+    textSize(20);
+    text("Start", 178, 238);
+    if ( mouseIsPressed)
+    {
+        if(140<mouseX<260 && 202<mouseY<262)
+        {
+            startGame = true;
+                    
+        }
+    }
+    if ( startGame === true )
+    {
+        if ( gameOn === true )
+        {
+            background(232, 223, 245);
+            noStroke();
+            if ( lives === 3)
+            {
+                fill(252, 104, 104);
+                ellipse(20,20,20,20);
+                ellipse(50,20,20,20);
+                ellipse(80,20,20,20);
+            }
+            else if ( lives === 2)
+            {
+                fill(252, 104, 104);
+                ellipse(50,20,20,20);
+                ellipse(80,20,20,20);
+            }
+            else if ( lives === 1)
+            {
+                fill(252, 104, 104);
+                ellipse(80,20,20,20);
+            }
+            else if ( lives === 0 )
+            {
+                gameOn = false;
+            }
+            
+            fill(252, 104, 104);
+            rect(263,10,117,30,30);
+            rect(111,10,146,30,30);
+	    rect(339,377,56,18,30);
+            fill(0, 0, 0);
+	    textFont('Playfair Display');
+	    textSize(15);
+            text("Score : " + score, 290, 30);
+            text("High Score : " + highScore, 134, 30);
+            text("Pause", 348, 391);
+            
+            fill(255, 248, 148);
+            ellipse(100, yPos_yel, 30, 30);
+            
+            if ( keyIsDown(UP_ARROW) )
+            {
+                yPos_yel -= 10;
+            }
+            else
+            {
+                yPos_yel += 10;
+            }
+            
+            if ( yPos_yel > 385 )
+            {
+                yPos_yel = 385;
+            }
+            if ( yPos_yel < 50 )
+            {
+                yPos_yel = 50;
+            }
+            
+            stroke(0);
+            strokeWeight(4);
+            line(line1_x, line1_y, line1_x+line1_length, line1_y);
+            line(line2_x, line2_y, line2_x+line2_length, line2_y);
+            
+            line1_x = line1_x-decreaseline1_x;
+            line2_x = line2_x-decreaseline2_x;
+            
+            if ( line1_x < 0-line1_length )
+            {
+                line1_x=400;
+                line1_y = random(50, 350);
+                line1_length = random(20, 300);
+                lives--;
+                decreaseline1_x = decreaseline1_x + 0.5;
+            }
+            
+            if ( line2_x < 0-line2_length )
+            {
+                line2_x=400;
+                line2_y = random(50, 350);
+                line2_length = random(20, 300);
+                lives--;
+                decreaseline2_x = decreaseline2_x + 0.5;
+            }
+            
+            if ( line1_y<(yPos_yel+15) && line1_y >(yPos_yel-15) )
+            {
+                if ( line1_x < 115 && (line1_x+line1_length)>85)
+                {
+                    line1_x=400;
+                    score++;
+                    line1_y=random(50, 350);
+                    line1_length = random(20, 300);
+                    decreaseline1_x += 0.5;
+                }
+            }
+            
+            if ( line2_y<(yPos_yel+15) && line2_y >(yPos_yel-15) )
+            {
+                if ( line2_x < 115 && (line2_x+line2_length)>85)
+                {
+                    line2_x=400;
+                    score++;
+                    line2_y=random(50, 350);
+                    line2_length = random(20, 300);
+                    decreaseline2_x += 0.5;
+                }
+            }
+            
+            
+        }
+        else
+        {
+            if ( score > highScore )
+            {
+                highScore = score;
+            }
+            background(232, 223, 245);
+            noStroke();
+            fill(169, 136, 219);
+            rect(50, 100, 300, 200, 60);
+            
+            fill(102, 5, 247);
+            textFont('Playfair Display');
+            textSize(60);
+            text("GAME OVER", 36, 71);
+            
+            fill(243, 242, 245);
+            rect(70,120,260,60,60);
+            rect(70,200,260,75,60);
+            rect(60, 318,280,62,60);
+            
+            fill(0);
+            textFont('Playfair Display');
+            textSize(30);
+            text("Score : " + score, 150, 159);
+            text("Restart", 150, 245);
+            text ("HighScore : " + highScore, 100, 357);
+            
+            if ( mouseIsPressed)
+            {
+                if(70<mouseX<330 && 200<mouseY<275)
+                {
+                    gameOn = true;
+                    score = 0;
+                    lives = 3;
+                    line1_x = 400;
+                    line2_x = 400;
+                    line1_y=random(50, 350);
+                    line2_length = random(20, 300);
+                    decreaseline1_x = 1;
+                    decreaseline2_x = 1;
+                    
+                }
+            }
+        }
+    }
+}
+function mousePressed() {
+    if ( mouseX>339 && mouseX<395 && mouseY>377 && mouseY<395 )
+    {
+	noStroke();
+        fill(252, 104, 104);
+        triangle(190, 181, 190, 221, 220, 201);
+        noLoop();
+        
+    }
+    if ( mouseX>190 && mouseX<220 && mouseY>181 && mouseY<221 )
+    {
+        loop();
+    }
+    
+}
+
+</script>
+<br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+
+<h2> Links </h2>
+<div id='buttons'>
+<button class="miniclip" onclick="window.location.href='https://www.miniclip.com/games/en/';"> MINICLIP </button>
+<button class="papalouie" onclick="window.location.href='http://www.papalouie.com/';"> PAPA LOUIE </button>
+<button class="kongregate" onclick="window.location.href='https://www.kongregate.com/';"> KONGREGATE </button>
+</div>
+
+
+</body>
+</html>

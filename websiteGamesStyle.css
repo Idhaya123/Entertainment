@@ -1,0 +1,82 @@
+.button {
+	background-color: #a7a4f5;
+	border: 1px cold black;
+	border-radius: 8px;
+	color: black;
+	text-align: center;
+	font-family: 'Abril Fatface', cursive;
+	float:left;
+}
+.button:hover {
+	background-color: #8b89cc;
+}
+.miniclip {
+	background-image: linear-gradient(to bottom, #fca223, #eb3b17);
+	border: 1px cold black;
+	border-radius: 8px;
+	color: black;
+	padding:70px 80px;
+	text-align: center;
+	font-family: 'Abril Fatface', cursive;
+	font-size: 70px;
+}
+.miniclip:hover {
+	background-image: linear-gradient(to bottom, #d4881e, #c93314);
+
+}
+.kongregate {
+	background-color: #c93d1a;
+	border: 1px cold black;
+	border-radius: 8px;
+	color: black;
+	padding:70px 80px;
+	text-align: center;
+	font-family: 'Abril Fatface', cursive;
+	font-size: 70px;
+}
+.kongregate:hover {
+	background-color: #9e3116;
+}
+.papalouie {
+	background-color: #49c956;
+	border: 1px cold black;
+	border-radius: 8px;
+	color: black;
+	padding:70px 80px;
+	text-align: center;
+	font-family: 'Abril Fatface', cursive;
+	font-size: 70px;
+}
+.papalouie:hover {
+	background-color: #3aa144;
+}
+#buttons {
+	text-align: center;
+}
+h1 {
+	text-align: center;
+	font-family: 'Montserrat Subrayada', sans-serif;
+	font-size : 50px;
+}
+h2 {
+	text-align: center;
+	font-family: 'Playfair Display', serif;
+	font-size: 70;
+}
+h3 {
+	text-align: center;
+	font-family: 'Playfair Display', serif;
+}
+canvas {
+	position: absolute;
+	width: 600px;
+	height: 400px;
+	left: 50%;
+	top: 50%;
+	margin-left: -200px; /* This is half the width */
+	margin-top: -200px; /* This is half the height */
+}
+body {
+	background-image: linear-gradient(to bottom right, white, #e3e3fc);		
+	background-color : #f5e8fa;
+}
